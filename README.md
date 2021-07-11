@@ -1,11 +1,17 @@
-# pyhep-2021-SX-OpenDataDemo
- Talk and practice notebooks for the PyHEP 2021 Proposed Talk
+# opendata-higgs-discovery
+ Notebooks to reproduce the Higgs discovery plots from ATLAS and CMS from public data.
+
+## Layout of repository
+
+You can find the notebooks to reproduce the Higgs discovery plots in the [talks](tree/main/talk) directory. The [notebooks](tree/main/notebooks) directory contains practice notebooks used to develop concepts for the analysis. They are not necessarily well documented. The talk directory contains information on what notebooks are availible.
+
+If you were to ask - what big thing is missing? The answer would be the determination of systematic errors. The collaborations, of course, paid extensive attention to this. However, it requires a lot more data, studies, and tests, and so does note appear in these Open Data demos.
+
+This repository was originally used for a [talk at PyHEP 2021](https://indico.cern.ch/event/1019958/contributions/4418552/).
 
 ## Using
 
-You can find the final notebooks used in the talk in the [talks](tree/main/talk) directory. The [notebooks](tree/main/notebooks) directory contains practice notebooks used to develop concepts for the talk. They are not necessarily well documented. The talk directory contains information on what notebooks are availible.
-
-If you were to ask - what big thing is missing? The answer would be the determination of systematic errors. The collaborations, of course, paid extensive attention to this. However, it requires a lot more data, studies, and tests, and so does note appear in these Open Data demos.
+Anyone should reproduce the ATLAS higgs plot without hesitation. Reproducing the CMS plot, however, requires real reasources: it accesses over 70 TB of data, and definately puts stresses on international infrastructure!
 
 ### ServiceX for the demo
 
@@ -49,6 +55,6 @@ If you are on windows, you'll need to make sure LongPathNames are turned on - as
 It is not currently possible to run on `binder` as `ServiceX` uses a non-standard port to download data.
 
 
-## Plans
+## Plans and Status
 
-The [issues](/../../issues) describes a list of issues that were encountered as this repository was built. As they are worked on, they will slowly be incorporated into this repostory.
+At the talk about 45 TB of data was used for the CMS plot out of the full 70TB. Along the way, there were a number of _issues_ discovered with running with datasets that large. The [issues](/../../issues) describes a list of issues that were encountered. As they are worked on, this repository will be updated to indicate the improvements in running on the full 70 TB dataset.
