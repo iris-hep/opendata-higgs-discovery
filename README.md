@@ -58,3 +58,7 @@ It is not currently possible to run on `binder` as `ServiceX` uses a non-standar
 ## Plans and Status
 
 At the talk about 45 TB of data was used for the CMS plot out of the full 70TB. Along the way, there were a number of _issues_ discovered with running with datasets that large. The [issues](/../../issues) describes a list of issues that were encountered. As they are worked on, this repository will be updated to indicate the improvements in running on the full 70 TB dataset.
+
+## Contributions
+
+Contributions are welcome!! Please submit as pull requests!
