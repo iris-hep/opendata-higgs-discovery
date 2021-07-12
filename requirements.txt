@@ -8,7 +8,9 @@ dask[distributed]
 # Coffea - problem somehow with urllib - so you migth have to
 # do this install by hand.
 wheel
-# coffea[servicex] -- Currently needs the https://github.com/gordonwatts/coffea/tree/pr_servicex_flat_root_files version
+# coffea[servicex] -- Currently needs the https://github.com/gordonwatts/coffea/tree/pr_servicex_flat_root_files version.
+#                     NOTE: INSTALL THIS FIRST. Or re-run this requirements file, coffea installs an old version of
+#                     func-adl-servicex.
 
 # Special things which are in beta - before release these should be removed!
 func-adl-servicex==1.1b7

@@ -45,6 +45,7 @@ Setup your environment:
 1. `python -m venv .venv`, and activate the new environment.
 1. `pip install -r requirements.txt`
 1. In the root directory of the checked out `coffea` package, run `pip install -e[servicex]`.
+1. Repeat the `pip instlal -r requirements.txt` command as `coffea` will over-write one of the packages needed.
 
 From there you can start `jupyter-lab`.
 
