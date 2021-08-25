@@ -1,7 +1,6 @@
 import asyncio
 from typing import List, Union
 
-import awkward as ak
 import numpy as np
 from coffea import hist
 from coffea.processor.servicex import Analysis, DataSource, LocalExecutor
@@ -10,35 +9,38 @@ from func_adl_servicex import ServiceXSourceUpROOT
 from servicex.servicex import ServiceXDataset
 
 
-def apply_event_cuts (source: ObjectStream) -> ObjectStream:
-    '''Event level cuts for the analysis. Keep from sending data that we aren't going to need at all in the end.
+def apply_event_cuts(source: ObjectStream) -> ObjectStream:
+    '''Event level cuts for the analysis. Keep from sending data that we
+    aren't going to need at all in the end.
     '''
     return (source
-        .Where(lambda e: e.trigE or e.trigM))
+            .Where(lambda e: e.trigE or e.trigM))
+
 
 def good_leptons(source: ObjectStream) -> ObjectStream:
-    '''Select out all good leptons from each event. Return their pt, eta, phi, and E, and other
-    things needed downstream.
+    '''Select out all good leptons from each event. Return their pt, eta, phi,
+    and E, and other things needed downstream.
 
     Because uproot doesn't tie toegher the objects, we can't do any cuts at this point.
     '''
     return source.Select(lambda e:
-        {
-            'lep_pt': e.lep_pt,
-            'lep_eta': e.lep_eta,
-            'lep_phi': e.lep_phi,
-            'lep_energy': e.lep_E,
-            'lep_charge': e.lep_charge,
-            'lep_ptcone30': e.lep_ptcone30,
-            'lep_etcone20': e.lep_etcone20,
-            'lep_typeid': e.lep_type,
-            'lep_trackd0pvunbiased': e.lep_trackd0pvunbiased,
-            'lep_tracksigd0pvunbiased': e.lep_tracksigd0pvunbiased,
-            'lep_z0': e.lep_z0,
-            'mcWeight': e.mcWeight,
-            'scaleFactor': e.scaleFactor_ELE*e.scaleFactor_MUON*e.scaleFactor_LepTRIGGER*e.scaleFactor_PILEUP,
-        }) \
+                         {
+                             'lep_pt': e.lep_pt,
+                             'lep_eta': e.lep_eta,
+                             'lep_phi': e.lep_phi,
+                             'lep_energy': e.lep_E,
+                             'lep_charge': e.lep_charge,
+                             'lep_ptcone30': e.lep_ptcone30,
+                             'lep_etcone20': e.lep_etcone20,
+                             'lep_typeid': e.lep_type,
+                             'lep_trackd0pvunbiased': e.lep_trackd0pvunbiased,
+                             'lep_tracksigd0pvunbiased': e.lep_tracksigd0pvunbiased,
+                             'lep_z0': e.lep_z0,
+                             'mcWeight': e.mcWeight,
+                             'scaleFactor': e.scaleFactor_ELE*e.scaleFactor_MUON*e.scaleFactor_LepTRIGGER*e.scaleFactor_PILEUP,
+                         }) \
         .AsParquetFiles('junk.parquet')
+
 
 class ATLAS_Higgs_4L(Analysis):
     '''Run the 4 Lepton analysis on ATLAS educational ntuples
