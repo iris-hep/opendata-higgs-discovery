@@ -40,7 +40,7 @@ Setup your environment:
 
 1. This has been run under python 3.9.6. It should work with anything that is 3.7 or greater.
 
-1. Check out this repostiory locally, and check out the [coffea patched repository locally](https://github.com/gordonwatts/coffea).
+1. Check out this repository locally, and check out the [coffea patched repository locally](https://github.com/gordonwatts/coffea).
 1. For the `coffea` repository, check out the branch [pr_servicex_flat_root_files](https://github.com/gordonwatts/coffea/tree/pr_servicex_flat_root_files). For this package use the head.
 1. `python -m venv .venv`, and activate the new environment.
 1. `pip install -r requirements.txt`
