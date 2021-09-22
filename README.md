@@ -19,8 +19,10 @@ You'll need a `servicex.yaml` file in your home directory that contains somethin
 
 ```
 api_endpoints:
-  - endpoint: http://xxx.org
-    type: open_uproot
+  - endpoint: http://uproot-atlas.servicex.ssl-hep.org
+    type: uproot
+    name: uproot
+    token: xxxxxx
   - endpoint: http://yyy.org
     type: cms_run1_aod
 

@@ -1,0 +1,5 @@
+api_endpoints:
+  - endpoint: http://uproot-atlas.servicex.ssl-hep.org
+    type: uproot
+    name: uproot
+    token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MzIzMzg4MzEsIm5iZiI6MTYzMjMzODgzMSwianRpIjoiNWQxMTk0ODEtMzJkZi00MGRhLTg0NWEtYjZlMjE0ZjdmMDcyIiwiaWRlbnRpdHkiOiJhNTFkYmQ3ZS1kMjc0LTExZTUtOWIxMS05YmUzNDdhMDljZTAiLCJ0eXBlIjoicmVmcmVzaCJ9.fOB9PfZX-BYnYVifIpz_A88B2EeWBgc7qhL47MxuTFA

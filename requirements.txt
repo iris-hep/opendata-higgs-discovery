@@ -1,5 +1,7 @@
 # Standard Stuff
-jupyterlab
+# jupyterlab
+
+backoff>=1.11.1
 hist[plot]
 
 # If running distributed...
