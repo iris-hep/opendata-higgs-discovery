@@ -1,5 +1,11 @@
 api_endpoints:
-  - endpoint: http://uproot-atlas.servicex.ssl-hep.org
+  # - endpoint: http://uproot-atlas.servicex.ssl-hep.org
+  # type: uproot
+  # name: uproot
+  # token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MzIzMzg4MzEsIm5iZiI6MTYzMjMzODgzMSwianRpIjoiNWQxMTk0ODEtMzJkZi00MGRhLTg0NWEtYjZlMjE0ZjdmMDcyIiwiaWRlbnRpdHkiOiJhNTFkYmQ3ZS1kMjc0LTExZTUtOWIxMS05YmUzNDdhMDljZTAiLCJ0eXBlIjoicmVmcmVzaCJ9.fOB9PfZX-BYnYVifIpz_A88B2EeWBgc7qhL47MxuTFA
+  - name: uproot
+    endpoint: https://uproot-atlas.servicex.af.uchicago.edu/
+    token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MzIzNTYzNDksIm5iZiI6MTYzMjM1NjM0OSwianRpIjoiNjRkZTA5MDAtN2JiNC00MTk5LThiNGEtMGQ0NjYyZjc4YjdkIiwiaWRlbnRpdHkiOiJhNTFkYmQ3ZS1kMjc0LTExZTUtOWIxMS05YmUzNDdhMDljZTAiLCJ0eXBlIjoicmVmcmVzaCJ9.Jaq3-U24piza_F2UN0wkT-x8Vev75RATX2ZKb3N6PHc
     type: uproot
-    name: uproot
-    token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MzIzMzg4MzEsIm5iZiI6MTYzMjMzODgzMSwianRpIjoiNWQxMTk0ODEtMzJkZi00MGRhLTg0NWEtYjZlMjE0ZjdmMDcyIiwiaWRlbnRpdHkiOiJhNTFkYmQ3ZS1kMjc0LTExZTUtOWIxMS05YmUzNDdhMDljZTAiLCJ0eXBlIjoicmVmcmVzaCJ9.fOB9PfZX-BYnYVifIpz_A88B2EeWBgc7qhL47MxuTFA
+  - name: cms_run1_aod
+    endpoint: http://cmsopendata.servicex.ssl-hep.org
