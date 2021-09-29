@@ -38,8 +38,7 @@ def good_leptons(source: ObjectStream) -> ObjectStream:
                              'lep_z0': e.lep_z0,
                              'mcWeight': e.mcWeight,
                              'scaleFactor': e.scaleFactor_ELE*e.scaleFactor_MUON*e.scaleFactor_LepTRIGGER*e.scaleFactor_PILEUP,
-                         }) \
-        .AsParquetFiles('junk.parquet')
+                         })  # .AsParquetFiles('junk.parquet')
 
 
 class ATLAS_Higgs_4L(Analysis):
@@ -62,30 +61,30 @@ class ATLAS_Higgs_4L(Analysis):
         dataset = events.metadata['dataset']
         leptons = events.lep
 
-        weight =  ak.Array(np.ones(len(events.scaleFactor))) if events.metadata['is_data'] \
+        weight = ak.Array(np.ones(len(events.scaleFactor))) if events.metadata['is_data'] \
             else events.scaleFactor*events.mcWeight
 
         # Good electon selection
         electrons_mask = ((leptons.typeid == 11)
-            & (leptons.pt > 7000.0)
-            & (abs(leptons.eta) <2.47)
-            & (leptons.etcone20 / leptons.pt < 0.3)
-            & (leptons.ptcone30 / leptons.pt < 0.3)
-            & (abs(leptons.trackd0pvunbiased) / leptons.tracksigd0pvunbiased < 5)
-            & (abs(leptons.z0*np.sin(leptons.theta)) < 0.5)
-        )
+                          & (leptons.pt > 7000.0)
+                          & (abs(leptons.eta) < 2.47)
+                          & (leptons.etcone20 / leptons.pt < 0.3)
+                          & (leptons.ptcone30 / leptons.pt < 0.3)
+                          & (abs(leptons.trackd0pvunbiased) / leptons.tracksigd0pvunbiased < 5)
+                          & (abs(leptons.z0*np.sin(leptons.theta)) < 0.5)
+                          )
 
         electrons_good = leptons[electrons_mask]
 
         # Good muon selection
         muon_mask = ((leptons.typeid == 13)
-            & (leptons.pt > 5000.0)
-            & (abs(leptons.eta) <2.5)
-            & (leptons.etcone20 / leptons.pt < 0.3)
-            & (leptons.ptcone30 / leptons.pt < 0.3)
-            & (abs(leptons.trackd0pvunbiased) / leptons.tracksigd0pvunbiased < 3)
-            & (abs(leptons.z0*np.sin(leptons.theta)) < 0.5)
-        )
+                     & (leptons.pt > 5000.0)
+                     & (abs(leptons.eta) < 2.5)
+                     & (leptons.etcone20 / leptons.pt < 0.3)
+                     & (leptons.ptcone30 / leptons.pt < 0.3)
+                     & (abs(leptons.trackd0pvunbiased) / leptons.tracksigd0pvunbiased < 3)
+                     & (abs(leptons.z0*np.sin(leptons.theta)) < 0.5)
+                     )
 
         muons_good = leptons[muon_mask]
 
@@ -109,9 +108,9 @@ class ATLAS_Higgs_4L(Analysis):
         # Next, we need to cut on the pT for the leading, sub-leading, and sub-sub-leading lepton
         leptons_good_preselection = leptons_good[event_mask]
         event_good_lepton_mask = (
-            (leptons_good_preselection[:,0].pt > 25000.0)
-            & (leptons_good_preselection[:,1].pt > 15000.0)
-            & (leptons_good_preselection[:,2].pt > 10000.0)
+            (leptons_good_preselection[:, 0].pt > 25000.0)
+            & (leptons_good_preselection[:, 1].pt > 15000.0)
+            & (leptons_good_preselection[:, 2].pt > 10000.0)
         )
 
         # Now, we need to rebuild the good muon and electron lists with those selections
@@ -123,8 +122,8 @@ class ATLAS_Higgs_4L(Analysis):
         eemumu_mask = (ak.num(muons_analysis) == 2)
         muon_eemumu = muons_analysis[eemumu_mask]
         electrons_eemumu = electrons_analysis[eemumu_mask]
-        z1_eemumu = muon_eemumu[:,0] + muon_eemumu[:,1]
-        z2_eemumu = electrons_eemumu[:,0] + electrons_eemumu[:,1]
+        z1_eemumu = muon_eemumu[:, 0] + muon_eemumu[:, 1]
+        z2_eemumu = electrons_eemumu[:, 0] + electrons_eemumu[:, 1]
         h_eemumu = z1_eemumu + z2_eemumu
 
         sumw[dataset] += len(h_eemumu)
@@ -146,7 +145,7 @@ class ATLAS_Higgs_4L(Analysis):
             delta = abs((91.18*1000.0) - zs.mass[:])
             closest_masses = np.min(delta, axis=-1)
             the_closest = (delta == closest_masses)
-            the_furthest = the_closest[:,::-1]
+            the_furthest = the_closest[:, ::-1]
 
             h_eeee = zs[the_closest] + zs[the_furthest]
             sumw[dataset] += len(h_eeee)
@@ -163,7 +162,7 @@ class ATLAS_Higgs_4L(Analysis):
         four_leptons_one_flavor(muons_analysis[(ak.num(muons_analysis) == 4)],
                                 weight[(ak.num(muons_analysis) == 4)],
                                 '$\\mu\\mu\\mu\\mu$')
-        
+
         return {
             "sumw": sumw,
             "mass": mass_hist,
@@ -175,11 +174,12 @@ def make_ds(name: str, query: ObjectStream):
     '''
     from utils import files
     is_data = name == 'data'
-    datasets = [ServiceXDataset(files[name]['files'], backend_type='open_uproot', image='sslhep/servicex_func_adl_uproot_transformer:pr_fix_awk_bug')]
+    datasets = [ServiceXDataset(files[name]['files'], backend_name='uproot-af',
+                                image='sslhep/servicex_func_adl_uproot_transformer:pr_fix_awk_bug')]
     return DataSource(query=query, metadata={'dataset': name, 'is_data': is_data}, datasets=datasets)
 
 
-async def run_atlas_4l_analysis(ds_names: Union[str,List[str]]):
+async def run_atlas_4l_analysis(ds_names: Union[str, List[str]]):
     '''
     Run on a known analysis file/files and return the result.
     Should be fine to start many of these at once.
@@ -194,13 +194,13 @@ async def run_atlas_4l_analysis(ds_names: Union[str,List[str]]):
         ds_names = list(files.keys())
 
     # Create the query
-    ds = ServiceXSourceUpROOT('cernopendata://dummy',  "mimi", backend='open_uproot')
+    ds = ServiceXSourceUpROOT('cernopendata://dummy',  "mini", backend_name='uproot-af')
     ds.return_qastle = True
     leptons = good_leptons(apply_event_cuts(ds))
 
     # Get data source for this run
     # TODO: Why do I need to tell it the datatype?
-    executor = LocalExecutor(datatype='parquet')
+    executor = LocalExecutor()
     datasources = [make_ds(ds_name, leptons) for ds_name in ds_names]
 
     # Create the analysis and we can run from there.

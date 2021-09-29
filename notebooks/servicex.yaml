@@ -1,9 +1,0 @@
-api_endpoints:
-  - name: xaod
-    endpoint: https://servicex-release-testing-1.servicex.ssl-hep.org/
-    token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MzIzMjI3NzMsIm5iZiI6MTYzMjMyMjc3MywianRpIjoiNGNmOWJjN2QtZDY4NS00ODkwLTkwZmYtN2QxMzViMWU1Y2I2IiwiaWRlbnRpdHkiOiJhNTFkYmQ3ZS1kMjc0LTExZTUtOWIxMS05YmUzNDdhMDljZTAiLCJ0eXBlIjoicmVmcmVzaCJ9.J-IBF53Jh4TbM-G09jNCIc5Jl5LKhKJTYYJEImoZ140
-    type: xaod
-  # - name: xaod(test2)
-  #   endpoint: https://servicex-release-testing-2.servicex.ssl-hep.org/
-  #   token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MzIyMzg5ODgsIm5iZiI6MTYzMjIzODk4OCwianRpIjoiOTIwYjBhYmQtNmFhMi00YzhkLWFjYTktNmI3MmM0YjdhY2JjIiwiaWRlbnRpdHkiOiJhNTFkYmQ3ZS1kMjc0LTExZTUtOWIxMS05YmUzNDdhMDljZTAiLCJ0eXBlIjoicmVmcmVzaCJ9.0WFPMp1kZ8hRxgJ7x9gRz0H6wsmhTMM-XmMQGBrSlW8
-  #   type: xaod

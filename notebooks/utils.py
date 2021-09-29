@@ -10,7 +10,7 @@ files = {
                 'root://eospublic.cern.ch//eos/opendata/atlas/OutreachDatasets/2020-01-22/4lep/Data/data_B.4lep.root',
                 'root://eospublic.cern.ch//eos/opendata/atlas/OutreachDatasets/2020-01-22/4lep/Data/data_C.4lep.root',
                 'root://eospublic.cern.ch//eos/opendata/atlas/OutreachDatasets/2020-01-22/4lep/Data/data_D.4lep.root',
-                ],
+            ],
             'nickname': 'data',
             'treename': atlas_root_treename,
         },

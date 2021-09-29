@@ -7,5 +7,7 @@ api_endpoints:
     endpoint: https://uproot-atlas.servicex.af.uchicago.edu/
     token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MzI3NjA5MjgsIm5iZiI6MTYzMjc2MDkyOCwianRpIjoiNWY5NDkzMjctMWJjMi00NzQ4LTg4NjktZWQ3NzQ1NDQ3NTczIiwiaWRlbnRpdHkiOiJhNTFkYmQ3ZS1kMjc0LTExZTUtOWIxMS05YmUzNDdhMDljZTAiLCJ0eXBlIjoicmVmcmVzaCJ9.ZVOyENdo30v8BxHTVMU4Sg4sRbdvrcUWapeMJnrJKoE
     type: uproot
-  - name: cms_run1_aod
-    endpoint: http://cmsopendata.servicex.ssl-hep.org
+  - name: xaod-af
+    endpoint: https://xaod.servicex.af.uchicago.edu/
+    token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MzI1NDI3ODgsIm5iZiI6MTYzMjU0Mjc4OCwianRpIjoiMmQ0Y2UwMTYtNGJlZC00NjcxLTk0YTgtYTdlNzNjMGIyOTk2IiwiaWRlbnRpdHkiOiJhNTFkYmQ3ZS1kMjc0LTExZTUtOWIxMS05YmUzNDdhMDljZTAiLCJ0eXBlIjoicmVmcmVzaCJ9.PgP7f2SDu4BRqaVwJnTY5P2XViXYW2WMnbY1nhR8hkY
+    type: xaod

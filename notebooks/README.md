@@ -36,13 +36,4 @@ To make the final plot we need. Run numbers, below, pulled from [here for MC](ht
 
 `func_adl` should render events with the trigger applied, loose lepton criteria applied, and at least one lepton of 25 GeV or better. `awkward` will then implement the remaining operations to build the histogram results.
 
-
-## CMD Demo
-
-* Based on the [HiggsDemoAnalyzer](https://github.com/cms-opendata-analyses/HiggsExample20112012/tree/66648f91f5a154089ee51eeae4f45146478e0720/HiggsDemoAnalyzer), and Level 4 analysis.
-    * [Muon selection](https://github.com/cms-opendata-analyses/HiggsExample20112012/blob/66648f91f5a154089ee51eeae4f45146478e0720/HiggsDemoAnalyzer/src/HiggsDemoAnalyzerGit.cc#L1075)
-    * [Electron selection](https://github.com/cms-opendata-analyses/HiggsExample20112012/blob/66648f91f5a154089ee51eeae4f45146478e0720/HiggsDemoAnalyzer/src/HiggsDemoAnalyzerGit.cc#L1214)
-* And used Brian Cruz's [awkward translation of the Higgs to 4L analysis](https://github.com/936-BCruz/Translating-Analyses-Into-Prototype-Analysis-Systems/blob/main/Higgs%20to%204%20Leptons%20Analysis.ipynb) as well.
-### Datasets
-
 * The source datasets can be found in this [cds document](http://opendata.cern.ch/record/5500)
